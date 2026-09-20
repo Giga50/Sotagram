@@ -2,29 +2,43 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Sotagram</title>
 <link rel="stylesheet" href="style.css">
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
-<div class="chat">
+
+<div class="auth" id="auth">
+<div class="auth-box">
+<div class="auth-logo">S</div>
+<h1>Sotagram</h1>
+<p class="auth-sub">Войди или зарегистрируйся</p>
+<input id="authName" type="text" placeholder="Ник" maxlength="20" autocomplete="off">
+<input id="authPass" type="password" placeholder="Пароль" maxlength="40">
+<input id="authPass2" type="password" placeholder="Повтори пароль" maxlength="40">
+<button id="loginBtn">Войти</button>
+<button id="regBtn">Регистрация</button>
+<div class="auth-error" id="authError"></div>
+</div>
+</div>
+
+<div class="chat" id="chat" style="display:none">
 <header class="chat-header">
-<div class="avatar">S</div>
+<div class="avatar" id="myAvatar">?</div>
 <div class="user-info">
-<h2>Sotagram</h2>
+<h2 id="myName">Гость</h2>
 <span class="status">общий чат</span>
 </div>
+<button class="logout" id="logoutBtn">Выйти</button>
 </header>
-<div class="name-bar">
-<input id="usernameInput" type="text" placeholder="Ваше имя..." value="Гость">
-</div>
 <main class="messages" id="messages"></main>
 <form class="chat-form" id="chatForm">
-<input id="messageInput" type="text" placeholder="Напишите сообщение..." autocomplete="off">
+<input id="messageInput" type="text" placeholder="Сообщение..." autocomplete="off">
 <button type="submit">➤</button>
 </form>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>
