@@ -23,20 +23,67 @@
 </div>
 </div>
 
-<div class="chat" id="chat" style="display:none">
-<header class="chat-header">
+<div class="app" id="app" style="display:none">
+
+<header class="app-header" id="mainHeader">
 <div class="avatar" id="myAvatar">?</div>
 <div class="user-info">
-<h2 id="myName">Гость</h2>
-<span class="status">общий чат</span>
+<h2 id="myName">...</h2>
+<span class="status" id="myUser">@...</span>
 </div>
-<button class="logout" id="logoutBtn">Выйти</button>
+<button class="icon-btn" id="profileBtn">⚙</button>
+<button class="icon-btn" id="logoutBtn">⎋</button>
 </header>
+
+<header class="app-header" id="chatHeader" style="display:none">
+<button class="icon-btn" id="backBtn">←</button>
+<div class="avatar" id="chatAvatar">?</div>
+<div class="user-info">
+<h2 id="chatName">...</h2>
+<span class="status" id="chatUser">@...</span>
+</div>
+</header>
+
+<nav class="tabs" id="tabs">
+<button class="tab active" data-tab="general">Общий</button>
+<button class="tab" data-tab="search">Поиск</button>
+</nav>
+
+<section class="page" id="page-general">
 <main class="messages" id="messages"></main>
 <form class="chat-form" id="chatForm">
 <input id="messageInput" type="text" placeholder="Сообщение..." autocomplete="off">
 <button type="submit">➤</button>
 </form>
+</section>
+
+<section class="page" id="page-search" style="display:none">
+<input id="searchInput" type="text" placeholder="@ник для поиска" class="search-input" autocomplete="off">
+<div id="searchResults" class="search-results"></div>
+</section>
+
+<section class="page" id="page-private" style="display:none">
+<main class="messages" id="privateMessages"></main>
+<form class="chat-form" id="privateForm">
+<input id="privateInput" type="text" placeholder="Сообщение..." autocomplete="off">
+<button type="submit">➤</button>
+</form>
+</section>
+
+<section class="page" id="page-profile" style="display:none">
+<div class="profile-form">
+<h3>Профиль</h3>
+<label>Ник (нельзя менять)</label>
+<input id="profUsername" type="text" disabled>
+<label>Отображаемое имя</label>
+<input id="profDisplay" type="text" maxlength="30" placeholder="Как тебя показывать">
+<label>О себе</label>
+<textarea id="profBio" maxlength="150" placeholder="Пара слов о себе"></textarea>
+<button id="saveProfile">Сохранить</button>
+<div class="auth-error" id="profMsg"></div>
+</div>
+</section>
+
 </div>
 
 <script src="script.js"></script>
